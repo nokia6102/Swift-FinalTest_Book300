@@ -28,6 +28,7 @@
 		5A1D600B1F39480300D6A438 /* 五言律句.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A1D5FFB1F39480300D6A438 /* 五言律句.png */; };
 		5A1D600C1F39480300D6A438 /* 五言絕句.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A1D5FFC1F39480300D6A438 /* 五言絕句.png */; };
 		5A1D600D1F39480300D6A438 /* 樂府.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A1D5FFD1F39480300D6A438 /* 樂府.png */; };
+		5A1D60101F394CE500D6A438 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1D600F1F394CE500D6A438 /* libsqlite3.0.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,8 @@
 		5A1D5FFB1F39480300D6A438 /* 五言律句.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "五言律句.png"; sourceTree = "<group>"; };
 		5A1D5FFC1F39480300D6A438 /* 五言絕句.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "五言絕句.png"; sourceTree = "<group>"; };
 		5A1D5FFD1F39480300D6A438 /* 樂府.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "樂府.png"; sourceTree = "<group>"; };
+		5A1D600F1F394CE500D6A438 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		5A1D60111F394D1600D6A438 /* MyBook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyBook-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A1D60101F394CE500D6A438 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +76,7 @@
 			children = (
 				54754A8A1F319AB1002B65E5 /* MyBook */,
 				54754A891F319AB1002B65E5 /* Products */,
+				5A1D600E1F394CE500D6A438 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +101,7 @@
 				54754A971F319AB1002B65E5 /* Info.plist */,
 				54754A9D1F319C62002B65E5 /* PageViewController.swift */,
 				54754A9F1F319CDA002B65E5 /* ContentViewController.swift */,
+				5A1D60111F394D1600D6A438 /* MyBook-Bridging-Header.h */,
 			);
 			path = MyBook;
 			sourceTree = "<group>";
@@ -126,6 +132,14 @@
 				5A1D5FFD1F39480300D6A438 /* 樂府.png */,
 			);
 			path = image_poem;
+			sourceTree = "<group>";
+		};
+		5A1D600E1F394CE500D6A438 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A1D600F1F394CE500D6A438 /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +175,7 @@
 					54754A871F319AB1002B65E5 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 6GVDL4Y27X;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -343,11 +358,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 6GVDL4Y27X;
 				INFOPLIST_FILE = MyBook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.studio-pj.MyBook";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyBook/MyBook-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -356,11 +374,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 6GVDL4Y27X;
 				INFOPLIST_FILE = MyBook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.studio-pj.MyBook";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyBook/MyBook-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
