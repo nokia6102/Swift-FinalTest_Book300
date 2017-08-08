@@ -146,7 +146,7 @@ class PageViewController: UIPageViewController,UIPageViewControllerDataSource,UI
     {
         //不是最後一頁，才能往後翻頁
  
-        if pageCounter < totalPages - 1         //一開始的的封面多一張total要減回來
+        if pageCounter < totalPages - 1         //--- 一開始的的封面多一張total要減回來
         {
             pageCounter += 1
         }
@@ -158,21 +158,23 @@ class PageViewController: UIPageViewController,UIPageViewControllerDataSource,UI
         contentViewController = self.storyboard!.instantiateViewController(withIdentifier: "ContentViewController") as! ContentViewController
         //傳遞下一頁的頁碼
         contentViewController.currentPage = pageCounter
+        
         //MARK- 傳唐詩資料
         let dicPage:[String:String] = arrTable[pageCounter]
-      
         contentViewController.stitle = dicPage["title"]!
         contentViewController.author = dicPage["author"]!
         contentViewController.article  = dicPage["article"]!
         contentViewController.type = dicPage["article"]!
-
         //MARK-
+        
         //回傳下一頁的頁面
         return contentViewController
     }
     //（由使用者執行翻頁動作）往前翻頁
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController?
     {
+        
+        print ("** \(pageCounter) , \(totalPages)")
         //不是在封面頁時，才能往前翻頁
         if pageCounter > 0
         {
@@ -180,13 +182,22 @@ class PageViewController: UIPageViewController,UIPageViewControllerDataSource,UI
         }
         else    //如果在封面頁，就翻到最後一頁
         {
-            pageCounter = totalPages
+            pageCounter = totalPages - 1            //--- 左翻回最後一頁
         }
         //產生上一頁的頁面
         contentViewController = self.storyboard!.instantiateViewController(withIdentifier: "ContentViewController") as! ContentViewController
         //傳遞上一頁的頁碼
         contentViewController.currentPage = pageCounter
         //回傳上一頁的頁面
+        
+        //MARK- 傳唐詩資料
+        let dicPage:[String:String] = arrTable[pageCounter]
+        contentViewController.stitle = dicPage["title"]!
+        contentViewController.author = dicPage["author"]!
+        contentViewController.article  = dicPage["article"]!
+        contentViewController.type = dicPage["article"]!
+        //MARK-
+        
         return contentViewController
     }
     
