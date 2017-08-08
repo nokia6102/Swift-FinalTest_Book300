@@ -36,6 +36,7 @@ class PageViewController: UIPageViewController,UIPageViewControllerDataSource,UI
    
         //MARK:  SQLite3 : 準備離線資料集(呼叫讀取資料庫資料的函式)
         getDataFromDB()
+        totalPages = arrTable.count
         //MARK:-
         
         //指定頁面控制器的代理人
@@ -47,23 +48,24 @@ class PageViewController: UIPageViewController,UIPageViewControllerDataSource,UI
         contentViewController.currentPage = pageCounter
         //讓頁面控制器目前管理的頁面
         self.setViewControllers([contentViewController], direction: .forward, animated: false, completion: nil)
-        timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { (timer) in
-            //不是最後一頁，才能往後翻頁
-            if self.pageCounter < self.totalPages
-            {
-                self.pageCounter += 1
-            }
-            else    //如果是最後一頁，就回到封面頁
-            {
-                self.pageCounter = 0
-            }
-            //初始化內容頁面
-            self.contentViewController = self.storyboard!.instantiateViewController(withIdentifier: "ContentViewController") as! ContentViewController
-            //傳遞下一頁的頁碼
-            self.contentViewController.currentPage = self.pageCounter
-            //進行翻頁(動畫屬性為true，英文橫式為forward)
-            self.setViewControllers([self.contentViewController], direction: .forward, animated: true, completion: nil)
-        })
+       
+//        timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { (timer) in
+//            //不是最後一頁，才能往後翻頁
+//            if self.pageCounter < self.totalPages
+//            {
+//                self.pageCounter += 1
+//            }
+//            else    //如果是最後一頁，就回到封面頁
+//            {
+//                self.pageCounter = 0
+//            }
+//            //初始化內容頁面
+//            self.contentViewController = self.storyboard!.instantiateViewController(withIdentifier: "ContentViewController") as! ContentViewController
+//            //傳遞下一頁的頁碼
+//            self.contentViewController.currentPage = self.pageCounter
+//            //進行翻頁(動畫屬性為true，英文橫式為forward)
+//            self.setViewControllers([self.contentViewController], direction: .forward, animated: true, completion: nil)
+//        })
 
     }
     
@@ -73,8 +75,16 @@ class PageViewController: UIPageViewController,UIPageViewControllerDataSource,UI
     {
         //清除所有的陣列元素
         arrTable.removeAll()        //arrTable = [[String:String]]()
+        
+        
+        //MARK- 加入第一筆是封面資料集
+        dicRow = ["page":"0","type":"七言古詩","title":"封面","author":"封面","article":"封面"]
+        //將字典加入陣列（離線資料集）
+        arrTable.append(dicRow)
+        //MARK-
+        
         //準備查詢指令
-        let sql = "select page,type,title,author,article from poem order by page"
+        let sql = "select page,type,title,author,article from poem order by page "
         //將查詢指令轉成c語言的字串
         let cSql = sql.cString(using: .utf8)
         //宣告查詢結果的變數（連線資料集）
@@ -128,12 +138,15 @@ class PageViewController: UIPageViewController,UIPageViewControllerDataSource,UI
     //MARK:-
     
     
+    
+    
     //MARK:UIPageViewControllerDataSource
     //（由使用者執行翻頁動作）往後翻頁
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?
     {
         //不是最後一頁，才能往後翻頁
-        if pageCounter < totalPages
+ 
+        if pageCounter < totalPages - 1         //一開始的的封面多一張total要減回來
         {
             pageCounter += 1
         }
@@ -145,6 +158,15 @@ class PageViewController: UIPageViewController,UIPageViewControllerDataSource,UI
         contentViewController = self.storyboard!.instantiateViewController(withIdentifier: "ContentViewController") as! ContentViewController
         //傳遞下一頁的頁碼
         contentViewController.currentPage = pageCounter
+        //MARK- 傳唐詩資料
+        let dicPage:[String:String] = arrTable[pageCounter]
+      
+        contentViewController.stitle = dicPage["title"]!
+        contentViewController.author = dicPage["author"]!
+        contentViewController.article  = dicPage["article"]!
+        contentViewController.type = dicPage["type"]!
+
+        //MARK-
         //回傳下一頁的頁面
         return contentViewController
     }
