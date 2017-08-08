@@ -38,6 +38,7 @@ class ContentViewController: UIViewController
         let attributes = [NSFontAttributeName:UIFont.systemFont(ofSize: 20),NSParagraphStyleAttributeName: paragraphStyle] //
         txtArtcle.attributedText = NSAttributedString(string: article , attributes: attributes)
  
+        print ("**  \(type)")
         imgType.image = UIImage(named: "\(type).png")
         
         //MARK:檢查是否到封面

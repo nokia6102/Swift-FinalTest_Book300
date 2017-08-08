@@ -164,7 +164,7 @@ class PageViewController: UIPageViewController,UIPageViewControllerDataSource,UI
         contentViewController.stitle = dicPage["title"]!
         contentViewController.author = dicPage["author"]!
         contentViewController.article  = dicPage["article"]!
-        contentViewController.type = dicPage["article"]!
+        contentViewController.type = dicPage["type"]!
         //MARK-
         
         //回傳下一頁的頁面
@@ -195,7 +195,7 @@ class PageViewController: UIPageViewController,UIPageViewControllerDataSource,UI
         contentViewController.stitle = dicPage["title"]!
         contentViewController.author = dicPage["author"]!
         contentViewController.article  = dicPage["article"]!
-        contentViewController.type = dicPage["article"]!
+        contentViewController.type = dicPage["type"]!
         //MARK-
         
         return contentViewController
