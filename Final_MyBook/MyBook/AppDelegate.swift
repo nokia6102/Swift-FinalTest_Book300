@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //取得資料庫來源路徑
         let sourceDB = Bundle.main.path(forResource: "literature", ofType: "db")
         //取得資料庫的目的地路徑
-        let destinationDB = NSHomeDirectory() + "/Documents/MyDB.db"
+        let destinationDB = NSHomeDirectory() + "/Documents/literature.db"
         print("目的地路徑：\(destinationDB)")
         //檢查目的地的資料庫是否已經存在
         if !fileManager.fileExists(atPath: destinationDB)   //如果不存在
