@@ -30,8 +30,13 @@ class ContentViewController: UIViewController
         lblPage.text = "\(currentPage)"
         lblTitle.text = stitle
         lblAuthor.text = author
-        txtArtcle.text = article
-        
+//        txtArtcle.text = article
+        //MARK:格式化文字
+        let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineSpacing = 10
+                paragraphStyle.alignment = .center
+        let attributes = [NSFontAttributeName:UIFont.systemFont(ofSize: 20),NSParagraphStyleAttributeName: paragraphStyle] //
+        txtArtcle.attributedText = NSAttributedString(string: article , attributes: attributes)
  
         imgType.image = UIImage(named: "\(type).png")
         
