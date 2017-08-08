@@ -1,0 +1,13 @@
+INSERT INTO "main"."poem" ("page","type","title","author","article") VALUES (?1,?2,?3,?4,?5)
+Parameters:
+param 1 (integer): 3
+param 2 (text): 五言古詩
+param 3 (text): 月下獨酌
+param 4 (text): 李白
+param 5 (text): 花間一壺酒  獨酌無相親
+舉杯邀明月  對影成三人
+月既不解飲  影徒隨我身
+暫伴月將影  行樂須及春
+我歌月徘徊  我舞影零亂
+醒時同交歡  醉後各分散
+永結無情遊  相期邈雲漢
