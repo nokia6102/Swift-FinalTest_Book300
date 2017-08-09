@@ -61,7 +61,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MSr-bf-TbJ" userLabel="imgType">
                                 <rect key="frame" x="210" y="71" width="129" height="54"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cover.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="eE0-ji-XAX" userLabel="imgCover">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eE0-ji-XAX" userLabel="imgCover">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="tintColor" red="0.10977060347795486" green="0.48634159564971924" blue="0.23245516419410706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
@@ -94,12 +94,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imgCover" destination="eE0-ji-XAX" id="hH6-Pj-twV"/>
-                        <outlet property="imgType" destination="MSr-bf-TbJ" id="zhT-yd-jyk"/>
-                        <outlet property="lblAuthor" destination="YHI-UH-bmO" id="GG1-E1-Yda"/>
-                        <outlet property="lblPage" destination="cHD-wr-PEF" id="oUT-dP-bEQ"/>
-                        <outlet property="lblTitle" destination="ll6-uz-q08" id="fkZ-xJ-i2O"/>
-                        <outlet property="txtArtcle" destination="uRG-Wr-pDY" id="nhj-35-jxI"/>
+                        <outlet property="imgCover" destination="eE0-ji-XAX" id="EvK-h6-8B1"/>
+                        <outlet property="imgType" destination="MSr-bf-TbJ" id="Dwn-y1-ewz"/>
+                        <outlet property="lblAuthor" destination="YHI-UH-bmO" id="9ui-1X-ttS"/>
+                        <outlet property="lblPage" destination="cHD-wr-PEF" id="iTb-m3-Vd3"/>
+                        <outlet property="lblTitle" destination="ll6-uz-q08" id="wS3-fZ-vzn"/>
+                        <outlet property="txtArticle" destination="uRG-Wr-pDY" id="BdA-EK-Dnn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="INd-EE-4vV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -107,7 +107,4 @@
             <point key="canvasLocation" x="528.79999999999995" y="-177.66116941529236"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="cover.jpg" width="826" height="1169"/>
-    </resources>
 </document>
